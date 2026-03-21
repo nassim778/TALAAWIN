@@ -1,0 +1,119 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$roomCode": {
+        ".read": true,
+        ".write": "$roomCode.matches(/^[A-Z0-9]{4,6}$/)",
+        "host": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 24"
+        },
+        "mode": {
+          ".validate": "newData.isString() && (newData.val() === 'tunisia' || newData.val() === 'maghreb' || newData.val() === 'world')"
+        },
+        "status": {
+          ".validate": "newData.isString() && (newData.val() === 'waiting' || newData.val() === 'playing' || newData.val() === 'result' || newData.val() === 'finished')"
+        },
+        "maxPlayers": {
+          ".validate": "newData.isNumber() && newData.val() >= 2 && newData.val() <= 5"
+        },
+        "currentRound": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 20"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber() && newData.val() > 0"
+        },
+        "playerList": {
+          "$idx": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 24"
+          }
+        },
+        "activePlayers": {
+          "$idx": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 24"
+          }
+        },
+        "replayRequest": {
+          ".validate": "newData.val() === null || (newData.hasChildren(['by', 'status', 'at']) && newData.child('by').isString() && newData.child('by').val().length > 0 && newData.child('status').isString() && (newData.child('status').val() === 'pending' || newData.child('status').val() === 'rejected') && newData.child('at').isNumber())"
+        },
+        "replayVotes": {
+          "$playerName": {
+            ".validate": "newData.val() === null || (newData.isString() && (newData.val() === 'yes' || newData.val() === 'no'))"
+          }
+        },
+        "rounds": {
+          "$roundIdx": {
+            ".validate": "newData.hasChildren(['imageUrl', 'locationName', 'country', 'lat', 'lng', 'walkable'])",
+            "imageUrl": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "locationName": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "country": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "lat": {
+              ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90"
+            },
+            "lng": {
+              ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180"
+            },
+            "walkable": {
+              "$stepIdx": {
+                ".validate": "newData.hasChildren(['id', 'imageUrl', 'lat', 'lng'])",
+                "id": {
+                  ".validate": "newData.isString() && newData.val().length > 0"
+                },
+                "imageUrl": {
+                  ".validate": "newData.isString() && newData.val().length > 0"
+                },
+                "lat": {
+                  ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90"
+                },
+                "lng": {
+                  ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180"
+                },
+                "$other": {
+                  ".validate": false
+                }
+              }
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "guesses": {
+          "$playerName": {
+            "$roundIdx": {
+              ".validate": "newData.hasChildren(['lat', 'lng', 'score', 'distance', 't'])",
+              "lat": {
+                ".validate": "newData.isNumber() && newData.val() >= -90 && newData.val() <= 90"
+              },
+              "lng": {
+                ".validate": "newData.isNumber() && newData.val() >= -180 && newData.val() <= 180"
+              },
+              "score": {
+                ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 5000"
+              },
+              "distance": {
+                ".validate": "newData.isNumber() && newData.val() >= 0"
+              },
+              "t": {
+                ".validate": "newData.isNumber()"
+              },
+              "$other": {
+                ".validate": false
+              }
+            }
+          }
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
