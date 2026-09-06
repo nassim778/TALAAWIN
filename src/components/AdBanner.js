@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+import { BannerAd, BannerAdSize, adsAvailable } from '../ads/mobileAdsCompat';
 import { getAdUnitId } from '../ads/admob';
 
 export default function AdBanner() {
+  if (!adsAvailable || !BannerAd) {
+    return null;
+  }
+
   return (
     <View style={styles.wrap}>
       <BannerAd

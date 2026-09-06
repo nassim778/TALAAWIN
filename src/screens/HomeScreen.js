@@ -16,7 +16,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { Video, ResizeMode } from 'expo-av';
-import { AdEventType, RewardedAd, RewardedAdEventType } from 'react-native-google-mobile-ads';
+import { AdEventType, RewardedAd, RewardedAdEventType, adsAvailable } from '../ads/mobileAdsCompat';
 import { COLORS, GAME } from '../constants/theme';
 import { useLanguage } from '../i18n/LanguageContext';
 import ConfirmModal from '../components/ConfirmModal';
@@ -59,6 +59,11 @@ export default function HomeScreen({ navigation, route }) {
   }, []);
 
   useEffect(() => {
+    if (!adsAvailable) {
+      setRewardedLoaded(false);
+      return;
+    }
+
     const rewarded = RewardedAd.createForAdRequest(getAdUnitId('rewarded'), {
       requestNonPersonalizedAdsOnly: true,
     });
@@ -222,6 +227,11 @@ export default function HomeScreen({ navigation, route }) {
   };
 
   const startTunisiaWithReward = () => {
+    if (!adsAvailable) {
+      navigation.navigate('Game', { mode: 'tunisia' });
+      return;
+    }
+
     const rewarded = rewardedRef.current;
     if (!rewarded || !rewardedLoaded) {
       Alert.alert(t('adLoadingTitle'), t('adLoadingMessage'));

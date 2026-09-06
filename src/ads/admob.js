@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { TestIds } from 'react-native-google-mobile-ads';
+import { TestIds } from './mobileAdsCompat';
 
 const PROD_UNITS = {
   banner: Platform.select({

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Audio, InterruptionModeIOS, InterruptionModeAndroid } from 'expo-av';
-import mobileAds, { MaxAdContentRating } from 'react-native-google-mobile-ads';
+import { mobileAds, MaxAdContentRating, adsAvailable } from './src/ads/mobileAdsCompat';
 import { LanguageProvider } from './src/i18n/LanguageContext';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import HomeScreen from './src/screens/HomeScreen';
@@ -29,15 +29,17 @@ export default function App() {
       playThroughEarpieceAndroid: false,
     }).catch(() => {});
 
-    mobileAds()
-      .setRequestConfiguration({
-        maxAdContentRating: MaxAdContentRating.T,
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
-        testDeviceIdentifiers: __DEV__ ? ['EMULATOR'] : [],
-      })
-      .then(() => mobileAds().initialize())
-      .catch(() => {});
+    if (adsAvailable) {
+      mobileAds()
+        .setRequestConfiguration({
+          maxAdContentRating: MaxAdContentRating.T,
+          tagForChildDirectedTreatment: false,
+          tagForUnderAgeOfConsent: false,
+          testDeviceIdentifiers: __DEV__ ? ['EMULATOR'] : [],
+        })
+        .then(() => mobileAds().initialize())
+        .catch(() => {});
+    }
   }, []);
 
   return (

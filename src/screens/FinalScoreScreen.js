@@ -15,7 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SIZES, GAME } from '../constants/theme';
 import { formatDistance, getScoreRating } from '../utils/scoring';
 import { useLanguage } from '../i18n/LanguageContext';
-import { AdEventType, InterstitialAd } from 'react-native-google-mobile-ads';
+import { AdEventType, InterstitialAd, adsAvailable } from '../ads/mobileAdsCompat';
 import { getAdUnitId } from '../ads/admob';
 import AdBanner from '../components/AdBanner';
 
@@ -102,6 +102,11 @@ export default function FinalScoreScreen({ route, navigation }) {
   }, []);
 
   useEffect(() => {
+    if (!adsAvailable) {
+      setInterstitialLoaded(false);
+      return;
+    }
+
     const interstitial = InterstitialAd.createForAdRequest(getAdUnitId('interstitial'), {
       requestNonPersonalizedAdsOnly: true,
     });
