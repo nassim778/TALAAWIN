@@ -4,7 +4,7 @@
     "slug": "TALAAWIN",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./طلّـع ويـن.png",
+    "icon": "./assets/app-icon.png",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "splash": {
@@ -17,11 +17,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./طلّـع ويـن.png",
+        "foregroundImage": "./assets/app-icon.png",
         "backgroundColor": "#080C18"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.TALAAWIN"
+      "package": "com.anonymous.TALAAWIN",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +36,12 @@
           "delayAppMeasurementInit": true
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a5442404-1862-4571-87f4-f6c962ec6cf0"
+      }
+    },
+    "owner": "nacimrached"
   }
 }
