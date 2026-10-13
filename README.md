@@ -22,7 +22,7 @@ Latest release: **v1.1.0**
 ## 🚀 What's New in v1.1.0:
 - **⚡ Instant Game Starts (0ms)**: Zero waiting time when launching multiplayer rooms.
 - **🛡️ Server-Authoritative Engine**: Live synchronized countdown timers, instant results, and server-side anti-cheat.
-- **🗺️ High-Speed Map Tiles**: 4x faster tile rendering powered by the global CartoDB Voyager CDN.
+- **🗺️ High-Speed Map Tiles**: Keyless, watermark-free Humanitarian OpenStreetMap tiles with zero rate limits.
 - **🎮 Game Modes**:
   - 🇹🇳 **Tunisia Explorer**: Discover authentic Tunisian cities, medinas, and landscapes.
   - 🇲🇦🇩🇿🇹🇳 **Maghreb Challenge**: Test your knowledge across North Africa.
@@ -33,4 +33,5 @@ Latest release: **v1.1.0**
 
 ## 🌐 Play on Web
 You can also play directly in any web browser without downloading:  
-👉 **[Play TALAAWIN on Web](https://talaawin.pages.dev/)**
+👉 **[Play TALAAWIN on Web](https://talawin.fun/)** (or on [talaawin.pages.dev](https://talaawin.pages.dev/))
+
