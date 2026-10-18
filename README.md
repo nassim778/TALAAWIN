@@ -7,7 +7,7 @@ TALAAWIN is a fast-paced geographic guessing game where you explore street-level
 
 ## 📱 Download for Android
 
-Latest release: **v1.1.0**
+Latest release: **v1.1.1**
 
 👉 **[Download TALAAWIN APK from Releases](https://github.com/nassim778/TALAAWIN/releases/latest)**
 
@@ -19,7 +19,15 @@ Latest release: **v1.1.0**
 
 ---
 
-## 🚀 What's New in v1.1.0:
+## 🚀 What's New in v1.1.1:
+- **🎨 Handcrafted Visual Polish**: Crisp vector iconography across all Flag & Country modes, replacing generic emojis.
+- **📊 Concept Footers & Challenge Stats**: Added round counters, score stats, and interactive map badges to Flag & Country challenges.
+- **✨ Streamlined Developer Attribution**: Modern signature for Nacim Rached (`nacim.tn`) with dual Mapillary (street imagery) and OpenStreetMap (map data) credits.
+- **📱 Responsive Mobile Layout**: Smooth scrolling container ensuring full usability on all compact screen sizes.
+
+---
+
+## ⚡ What's New in v1.1.0:
 - **⚡ Instant Game Starts (0ms)**: Zero waiting time when launching multiplayer rooms.
 - **🛡️ Server-Authoritative Engine**: Live synchronized countdown timers, instant results, and server-side anti-cheat.
 - **🗺️ High-Speed Map Tiles**: Keyless, watermark-free Humanitarian OpenStreetMap tiles with zero rate limits.
