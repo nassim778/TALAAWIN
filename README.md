@@ -1,4 +1,4 @@
-# 🌍 TALAAWIN (تلوين)
+# 🌍 TALAAWIN ( طــلّــع ويــن)
 **The Ultimate Street-View & Geography Guessing Game for Tunisia, the Maghreb, and the World!**
 
 TALAAWIN is a fast-paced geographic guessing game where you explore street-level imagery, drop a pin on the map, and score points based on how close you are to the actual location.
